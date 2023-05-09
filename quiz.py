@@ -51,8 +51,7 @@ def show_question(question_dict):
     
 if state == 0:
     st.text('state0')
-    st.write(quiz_state.answer_n)
-    show_question(get_question(domande_df))
+    st.write(get_question(domande_df))
 else:
     st.text('elsecase')
     st.write(quiz_state.answer_n)
