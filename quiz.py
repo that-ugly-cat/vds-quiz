@@ -22,7 +22,7 @@ for x in categories:
 '''for key, item in df_dict.items():
     st.dataframe(item)'''
     
-def ask_questions(any_df):
+def get_question(any_df):
     correct_count = 0
     wrong_count = 0
     index_list = list(any_df.index.values)
@@ -38,23 +38,20 @@ def ask_questions(any_df):
     returndict['c_answer'] = c_answer
     return(returndict)
 
-question_dict = ask_questions(domande_df)
-
-st.write(question_dict)
-    
-'''
-    with st.form("my_form"):
-        st.subheader(question)
-        st.radio('La tua risposta', answers)
+def show_question(question_dict):
+     with st.form("my_form"):
+        st.subheader(question_dict['question'])
+        st.radio('La tua risposta', question_dict['answers'])
         submitted = st.form_submit_button("Ok")
         if submitted:
-            if submitted == c_answer_n:
+            if submitted == question_dict['c_answer_n']:
                 st.success('Risposta corretta!')
             else:
-                message = 'Risposta sbagliata. La risposta corretta è:\n' + c_answer
+                message = 'Risposta sbagliata. La risposta corretta è:\n' + question_dict['c_answer']
                 st.error(message)
-            st.write(c_answer)
-            st.write(c_answer_n)
+    
 
-for key, item in df_dict.items():
-    x = ask_questions(item)'''
+a_question = ask_questions(domande_df)
+show_question(a_question)
+    
+
