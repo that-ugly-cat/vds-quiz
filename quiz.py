@@ -27,7 +27,7 @@ def ask_questions(df):
     question = df.at[question_index, 'Domanda']
     answers = df.at[question_index, 'Risposte']
     c_answer_n = df.at[question_index, 'Corretta_n']
-return(question, answers, c_answer_n)
+    return(question, answers, c_answer_n)
 
 for key, item in df_dict.items():
     ask_questions(item)
