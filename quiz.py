@@ -12,21 +12,21 @@ categories = domande_df['Categoria'].unique().tolist()
 df_dict= {}
 for x in categories:
     df_name = 'df_' + x
-    df = domande_df[domande_df['Categoria'] == x]
-    df = df.reset_index()
-    df_dict[df_name] = df
+    df_cat = domande_df[domande_df['Categoria'] == x]
+    df_cat = df.reset_index()
+    df_dict[df_name] = df_cat
     
 '''for key, item in df_dict.items():
     st.dataframe(item)'''
     
-def ask_questions(df):
+def ask_questions(any_df):
     correct_count = 0
     wrong_count = 0
-    index_list = list(df.index.values)
+    index_list = list(any_df.index.values)
     question_index = random.choice(index_list)
-    question = df.at[question_index, 'Domanda']
-    answers = df.at[question_index, 'Risposte']
-    c_answer_n = df.at[question_index, 'Corretta_n']
+    question = any_df.at[question_index, 'Domanda']
+    answers = any_df.at[question_index, 'Risposte']
+    c_answer_n = any_df.at[question_index, 'Corretta_n']
     return(question, answers, c_answer_n)
 
 for key, item in df_dict.items():
