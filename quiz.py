@@ -16,4 +16,10 @@ for x in categories:
     df = df.reset_index()
     df_dict[df_name] = df
     
-st.write(df_dict)
+for key, item in df_dict.items():
+    st.dataframe(item)
+    
+def ask_questions(df):
+    correct_count = 0
+    wrong_count = 0
+    
