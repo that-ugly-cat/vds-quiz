@@ -25,7 +25,7 @@ def ask_questions(any_df):
     index_list = list(any_df.index.values)
     question_index = random.choice(index_list)
     question = any_df.at[question_index, 'Domanda']
-    answers = any_df.at[question_index, 'Risposte']
+    answers = any_df.at[question_index, 'Risposte'].split('|') 
     c_answer_n = any_df.at[question_index, 'Corretta_n']
     return(question, answers, c_answer_n)
 
