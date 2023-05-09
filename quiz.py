@@ -52,7 +52,6 @@ def show_question(question_dict):
                 st.error(message)
     
 
-a_question = get_question(domande_df)
-show_question(a_question)
-    
+show_question(get_question(domande_df))
+st.write(st.session_state)    
 
