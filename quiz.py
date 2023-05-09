@@ -1,7 +1,10 @@
 import pandas as pd
 import random
 import streamlit as st
-
+try: 
+    import quiz_state
+except:
+    st.text('no state')
 domande_df = pd.read_excel('Domande.xlsx')
 #st.dataframe(domande_df)
 
@@ -27,8 +30,19 @@ def ask_questions(any_df):
     question = any_df.at[question_index, 'Domanda']
     answers = any_df.at[question_index, 'Risposte'].split('|') 
     c_answer_n = any_df.at[question_index, 'Corretta_n']
-    c_answer = answers[int(c_answer_n)-1]
+    c_answer = answers[int(c_answer_n)-1]   
+    returndict = {}
+    returndict['question'] = question
+    returndict['answers'] = answers
+    returndict['c_answer_n'] = c_answer_n
+    returndict['c_answer'] = c_answer
+    return(returndict)
+
+question_dict = ask_questions(domande_df)
+
+st.write(question_dict)
     
+'''
     with st.form("my_form"):
         st.subheader(question)
         st.radio('La tua risposta', answers)
@@ -41,11 +55,6 @@ def ask_questions(any_df):
                 st.error(message)
             st.write(c_answer)
             st.write(c_answer_n)
-    
-    return(question, answers, c_answer_n, c_answer)
 
-x = ask_questions(domande_df)
-
-st.write(x)
-'''for key, item in df_dict.items():
+for key, item in df_dict.items():
     x = ask_questions(item)'''
