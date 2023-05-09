@@ -34,6 +34,11 @@ def ask_questions(any_df):
         st.radio('La tua risposta', answers)
         submitted = st.form_submit_button("Ok")
         if submitted:
+            if submitted == c_answer_n:
+                st.success('Risposta corretta!')
+            else:
+                message = 'Risposta sbagliata. La risposta corretta è:\n' + c_answer
+                st.error(message)
             st.write(c_answer)
             st.write(c_answer_n)
     
