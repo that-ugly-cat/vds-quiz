@@ -39,13 +39,22 @@ def get_question(any_df):
     return(returndict)
 
 def show_question(question_dict):
+    with st.form('my form')
     st.subheader(question_dict['question'])
     question_radio = st.radio('La tua risposta', question_dict['answers'])
-    if question_radio == question_dict['c_answer_n']:
-        st.message('good')
-    else:
-        st.error('Bad!')
+    submitted = st.form_submit_button('ok')
+    if submitted:
+        st.write(question_radio, question_dict['c_answer_n']
 
     
-
-show_question(get_question(domande_df))
+for x in range (0,4):
+    show_question(get_question(domande_df))
+# normativa e legislazione: 4
+# aerodinamica: 8
+# pronto soccorso: 1
+# fisiopatologia: 1
+# meteorologia: 6
+# strumenti: 1
+# tecnica di pilotaggio: 5
+# materiali: 1
+# sicurezza: 3
