@@ -27,7 +27,8 @@ def ask_questions(any_df):
     question = any_df.at[question_index, 'Domanda']
     answers = any_df.at[question_index, 'Risposte'].split('|') 
     c_answer_n = any_df.at[question_index, 'Corretta_n']
-    return(question, answers, c_answer_n)
+    c_answer = answers[int(c_answer_n)-1]
+    return(question, answers, c_answer_n, c_answer)
 
 for key, item in df_dict.items():
     x = ask_questions(item)
