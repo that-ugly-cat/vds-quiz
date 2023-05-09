@@ -28,11 +28,15 @@ def ask_questions(any_df):
     answers = any_df.at[question_index, 'Risposte'].split('|') 
     c_answer_n = any_df.at[question_index, 'Corretta_n']
     c_answer = answers[int(c_answer_n)-1]
-    question_widget = st.radio(question, answers)
-    if st.button('Conferma'):
-        st.write(question_widget)
-        st.write(c_answer)
-        st.write(c_answer_n)
+    
+    with st.form("my_form"):
+        st.subheader(question)
+        st.radio('La tua risposta', answers)
+        submitted = st.form_submit_button("Ok")
+        if submitted:
+            st.write(question_widget)
+            st.write(c_answer)
+            st.write(c_answer_n)
     
     return(question, answers, c_answer_n, c_answer)
 ask_questions(domande_df)
