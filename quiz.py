@@ -49,7 +49,7 @@ def show_question(question_dict):
                 quiz_state_file.write('c_answer_n = ' + c_answer_n)
             
     
-if state = 0:
+if state == 0:
     show_question(get_question(domande_df))
 else:
     st.write(quiz_state.answer_n)
