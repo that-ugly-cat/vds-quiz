@@ -39,12 +39,12 @@ def get_question(any_df):
     return(returndict)
 
 def show_question(question_dict):
-    with st.form('my form')
-    st.subheader(question_dict['question'])
-    question_radio = st.radio('La tua risposta', question_dict['answers'])
-    submitted = st.form_submit_button('ok')
-    if submitted:
-        st.write(question_radio, question_dict['c_answer_n']
+    with st.form('my form'):
+        st.subheader(question_dict['question'])
+        question_radio = st.radio('La tua risposta', question_dict['answers'])
+        submitted = st.form_submit_button('ok')
+        if submitted:
+            st.write(question_radio, question_dict['c_answer_n']
 
     
 for x in range (0,4):
