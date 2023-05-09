@@ -46,7 +46,7 @@ def show_question(question_dict):
         if submitted:
             with open('quiz_state.py', 'w') as quiz_state_file:
                 quiz_state_file.write('answer_n = ' + question_radio)
-                quiz_state_file.write('c_answer_n = ' + c_answer_n)
+                quiz_state_file.write('c_answer_n = ' + question_dict[c_answer_n])
             
     
 if state == 0:
