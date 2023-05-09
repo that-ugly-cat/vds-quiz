@@ -28,8 +28,13 @@ def ask_questions(any_df):
     answers = any_df.at[question_index, 'Risposte'].split('|') 
     c_answer_n = any_df.at[question_index, 'Corretta_n']
     c_answer = answers[int(c_answer_n)-1]
+    question_widget = st.radio(question, answers)
+    if st.button('Conferma'):
+        st.write(question_widget)
+        st.write(c_answer)
+        st.write(c_answer_n)
+    
     return(question, answers, c_answer_n, c_answer)
 
 for key, item in df_dict.items():
     x = ask_questions(item)
-    st.write(x)
