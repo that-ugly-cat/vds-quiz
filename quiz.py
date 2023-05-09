@@ -42,6 +42,7 @@ def show_question(question_dict):
      with st.form("my_form"):
         st.subheader(question_dict['question'])
         question_radio = st.radio('La tua risposta', question_dict['answers'])
+        st.session_state['question_radio'] = question_radio
         submitted = st.form_submit_button("Ok")
         if submitted:
             if st.session_state['question_radio'] == question_dict['c_answer_n']:
