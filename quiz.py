@@ -58,5 +58,4 @@ else:
         st.success('well done')
     else:
         (st.error('Argh')
-st.write(st.session_state)    
 
