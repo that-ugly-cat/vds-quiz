@@ -57,5 +57,4 @@ else:
     if quiz_state.answer_n == quiz_state.c_answer_n:
         st.success('well done')
     else:
-        (st.error('Argh')
-
+        st.error('Argh')
