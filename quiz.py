@@ -50,8 +50,10 @@ def show_question(question_dict):
             
     
 if state == 0:
+    st.text('state0')
     show_question(get_question(domande_df))
 else:
+    st.text('elsecase')
     st.write(quiz_state.answer_n)
     st.write(quiz_state.c_answer_n)
     if quiz_state.answer_n == quiz_state.c_answer_n:
