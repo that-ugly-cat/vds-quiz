@@ -39,24 +39,13 @@ def get_question(any_df):
     return(returndict)
 
 def show_question(question_dict):
-     with st.form("my_form"):
-        st.subheader(question_dict['question'])
-        question_radio = st.radio('La tua risposta', question_dict['answers'])
-        submitted = st.form_submit_button("Ok")
-        if submitted:
-            with open('quiz_state.py', 'w') as quiz_state_file:
-                quiz_state_file.write('answer_n = ' + str(question_radio))
-                quiz_state_file.write('c_answer_n = ' + str(question_dict['c_answer_n']))
-            
-    
-if state == 0:
-    st.text('state0')
-    st.write(get_question(domande_df))
-else:
-    st.text('elsecase')
-    st.write(quiz_state.answer_n)
-    st.write(quiz_state.c_answer_n)
-    if quiz_state.answer_n == quiz_state.c_answer_n:
-        st.success('well done')
+    st.subheader(question_dict['question'])
+    question_radio = st.radio('La tua risposta', question_dict['answers'])
+    if question_radio == question_dict['c_answer_n']:
+        st.message('good')
     else:
-        st.error('Argh')
+        st.error('Bad!')
+
+    
+
+show_question(get_question(domande_df))
