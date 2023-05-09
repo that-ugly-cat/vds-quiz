@@ -13,7 +13,7 @@ df_dict= {}
 for x in categories:
     df_name = 'df_' + x
     df_cat = domande_df[domande_df['Categoria'] == x]
-    df_cat = df.reset_index()
+    df_cat = df_cat.reset_index()
     df_dict[df_name] = df_cat
     
 '''for key, item in df_dict.items():
