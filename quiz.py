@@ -22,4 +22,12 @@ for key, item in df_dict.items():
 def ask_questions(df):
     correct_count = 0
     wrong_count = 0
-    
+    index_list = list(df.index.values)
+    question_index = random.choice(index_list)
+    question = df.at[question_index, 'Domanda']
+    answers = df.at[question_index, 'Risposte']
+    c_answer_n = df.at[question_index, 'Corretta_n']
+return(question, answers, c_answer_n)
+
+for key, item in df_dict.items():
+    ask_questions(item)
