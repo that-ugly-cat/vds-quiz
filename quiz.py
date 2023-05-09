@@ -41,10 +41,10 @@ def get_question(any_df):
 def show_question(question_dict):
      with st.form("my_form"):
         st.subheader(question_dict['question'])
-        st.radio('La tua risposta', question_dict['answers'])
+        question_radio = st.radio('La tua risposta', question_dict['answers'])
         submitted = st.form_submit_button("Ok")
         if submitted:
-            if submitted == question_dict['c_answer_n']:
+            if st.session_state['question_radio] == question_dict['c_answer_n']:
                 st.success('Risposta corretta!')
             else:
                 message = 'Risposta sbagliata. La risposta corretta è:\n' + question_dict['c_answer']
